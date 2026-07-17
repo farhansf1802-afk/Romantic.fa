@@ -1,2 +1,0 @@
-# Romantic.fa
-Romantic theme
