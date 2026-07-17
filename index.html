@@ -1,8 +1,10 @@
-farhanarisha
 <!DOCTYPE html>
 <html>
 <head>
   <title>For Arisha ❤️</title>
+
+  <!-- ✅ Mobile Zoom Fix -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
   <style>
     body {
@@ -13,15 +15,16 @@ farhanarisha
       background: linear-gradient(to right, #ff758c, #ff7eb3);
       color: white;
       overflow: hidden;
+      touch-action: manipulation;
     }
 
     h1 {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     /* 💖 Name Glow */
     .name {
-      font-size: 50px;
+      font-size: 40px;
       font-weight: bold;
       background: linear-gradient(90deg, #fff, #ffdde1, #fff);
       -webkit-background-clip: text;
@@ -36,21 +39,22 @@ farhanarisha
 
     /* ❤️ Heart Beat */
     .heart {
-      font-size: 60px;
+      font-size: 50px;
       animation: beat 1s infinite;
     }
 
     @keyframes beat {
       0% { transform: scale(1); }
-      50% { transform: scale(1.4); }
+      50% { transform: scale(1.3); }
       100% { transform: scale(1); }
     }
 
-    /* 💌 Message Box */
+    /* 💌 Message */
     .msg {
-      font-size: 22px;
+      font-size: 20px;
       margin: 20px;
       min-height: 40px;
+      padding: 10px;
     }
 
     button {
@@ -94,44 +98,18 @@ farhanarisha
   <button onclick="startLove()">💌 Open My Heart</button>
 
   <!-- 🎵 Song -->
-  <audio id="song">
+  <audio id="song" preload="auto">
     <source src="song.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     function startLove() {
-      document.getElementById("song").play();
+      let audio = document.getElementById("song");
+      audio.play().catch(() => {
+        alert("Tap again to play music 💖");
+      });
       typeWriter();
     }
 
     // 💌 Typing Effect
-    let text = "Arisha 💖 I Love You 😘 Tum meri life ki sabse important ho... 💕";
-    let i = 0;
-
-    function typeWriter() {
-      if (i < text.length) {
-        document.getElementById("text").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 60);
-      }
-    }
-
-    // 🌹 Falling Hearts
-    function createHeart() {
-      let heart = document.createElement("div");
-      heart.className = "falling-heart";
-      heart.innerHTML = "💗";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
-    }
-
-    setInterval(createHeart, 250);
-  </script>
-
-</body>
-</html>
+    let text = "Arisha 💖 I Love You 😘 Tum meri life ki sabse special ho... 💕";
